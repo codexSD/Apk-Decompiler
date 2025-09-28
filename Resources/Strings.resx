@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <!-- Application Title -->
+  <data name="AppTitle" xml:space="preserve">
+    <value>مفكك تطبيقات أندرويد</value>
+  </data>
+  <data name="AppSubtitle" xml:space="preserve">
+    <value>فكك، عدّل، أعد تجميع ووقّع ملفات تطبيقات أندرويد</value>
+  </data>
+  
+  <!-- Process Steps -->
+  <data name="JavaCheckTitle" xml:space="preserve">
+    <value>فحص جافا</value>
+  </data>
+  <data name="JavaCheckDescription" xml:space="preserve">
+    <value>التحقق من تثبيت جافا</value>
+  </data>
+  <data name="ToolManagementTitle" xml:space="preserve">
+    <value>إدارة الأدوات</value>
+  </data>
+  <data name="ToolManagementDescription" xml:space="preserve">
+    <value>فحص وتحميل الأدوات المطلوبة</value>
+  </data>
+  <data name="ApkSelectionTitle" xml:space="preserve">
+    <value>اختيار التطبيق</value>
+  </data>
+  <data name="ApkSelectionDescription" xml:space="preserve">
+    <value>اختر ملف التطبيق للمعالجة</value>
+  </data>
+  <data name="DecompileTitle" xml:space="preserve">
+    <value>فك التجميع</value>
+  </data>
+  <data name="DecompileDescription" xml:space="preserve">
+    <value>استخراج محتويات التطبيق</value>
+  </data>
+  <data name="EditPhaseTitle" xml:space="preserve">
+    <value>مرحلة التعديل</value>
+  </data>
+  <data name="EditPhaseDescription" xml:space="preserve">
+    <value>تعديل الملفات المفكوكة</value>
+  </data>
+  <data name="RecompileTitle" xml:space="preserve">
+    <value>إعادة التجميع</value>
+  </data>
+  <data name="RecompileDescription" xml:space="preserve">
+    <value>إعادة بناء ملف التطبيق</value>
+  </data>
+  <data name="SignTitle" xml:space="preserve">
+    <value>توقيع التطبيق</value>
+  </data>
+  <data name="SignDescription" xml:space="preserve">
+    <value>توقيع التطبيق المعاد تجميعه</value>
+  </data>
+  <data name="CompleteTitle" xml:space="preserve">
+    <value>اكتمال</value>
+  </data>
+  <data name="CompleteDescription" xml:space="preserve">
+    <value>انتهت العملية</value>
+  </data>
+  
+  <!-- Buttons -->
+  <data name="CheckJavaButton" xml:space="preserve">
+    <value>فحص جافا</value>
+  </data>
+  <data name="CheckToolsButton" xml:space="preserve">
+    <value>فحص الأدوات</value>
+  </data>
+  <data name="SelectApkButton" xml:space="preserve">
+    <value>اختيار التطبيق</value>
+  </data>
+  <data name="DecompileButton" xml:space="preserve">
+    <value>فك التجميع</value>
+  </data>
+  <data name="OpenWorkspaceButton" xml:space="preserve">
+    <value>فتح مساحة العمل</value>
+  </data>
+  <data name="RecompileSignButton" xml:space="preserve">
+    <value>إعادة التجميع والتوقيع</value>
+  </data>
+  <data name="OpenOutputButton" xml:space="preserve">
+    <value>فتح المخرجات</value>
+  </data>
+  <data name="ViewLogsButton" xml:space="preserve">
+    <value>عرض السجلات</value>
+  </data>
+  <data name="LanguageButton" xml:space="preserve">
+    <value>English</value>
+  </data>
+  
+  <!-- Status Messages -->
+  <data name="Ready" xml:space="preserve">
+    <value>جاهز</value>
+  </data>
+  <data name="ProcessSteps" xml:space="preserve">
+    <value>خطوات العملية</value>
+  </data>
+  <data name="SelectedApk" xml:space="preserve">
+    <value>التطبيق المحدد</value>
+  </data>
+  
+  <!-- Java Check Messages -->
+  <data name="CheckingJavaInstallation" xml:space="preserve">
+    <value>فحص تثبيت جافا...</value>
+  </data>
+  <data name="JavaFound" xml:space="preserve">
+    <value>تم العثور على جافا {0}</value>
+  </data>
+  <data name="JavaInstalled" xml:space="preserve">
+    <value>جافا {0} مثبت</value>
+  </data>
+  <data name="JavaNotFound" xml:space="preserve">
+    <value>لم يتم العثور على جافا - انقر للتحميل</value>
+  </data>
+  <data name="JavaRequired" xml:space="preserve">
+    <value>جافا مطلوب ولكنه غير مثبت</value>
+  </data>
+  <data name="InstallJavaRestart" xml:space="preserve">
+    <value>يرجى تثبيت جافا وإعادة تشغيل التطبيق</value>
+  </data>
+  
+  <!-- Tool Management Messages -->
+  <data name="CheckingTools" xml:space="preserve">
+    <value>فحص الأدوات...</value>
+  </data>
+  <data name="CheckingApkTool" xml:space="preserve">
+    <value>فحص APKTool...</value>
+  </data>
+  <data name="DownloadingApkTool" xml:space="preserve">
+    <value>تحميل APKTool...</value>
+  </data>
+  <data name="CheckingUberSigner" xml:space="preserve">
+    <value>فحص Uber APK Signer...</value>
+  </data>
+  <data name="DownloadingUberSigner" xml:space="preserve">
+    <value>تحميل Uber APK Signer...</value>
+  </data>
+  <data name="AllToolsReady" xml:space="preserve">
+    <value>جميع الأدوات جاهزة</value>
+  </data>
+  <data name="ToolsReady" xml:space="preserve">
+    <value>الأدوات جاهزة</value>
+  </data>
+  <data name="ReadyToSelectApk" xml:space="preserve">
+    <value>جاهز لاختيار ملف APK</value>
+  </data>
+  <data name="ToolSetupFailed" xml:space="preserve">
+    <value>فشل إعداد الأدوات: {0}</value>
+  </data>
+  <data name="ToolSetupFailedShort" xml:space="preserve">
+    <value>فشل إعداد الأدوات</value>
+  </data>
+  
+  <!-- APK Selection Messages -->
+  <data name="ApkFilesFilter" xml:space="preserve">
+    <value>ملفات APK (*.apk)|*.apk|جميع الملفات (*.*)|*.*</value>
+  </data>
+  <data name="SelectApkFileTitle" xml:space="preserve">
+    <value>اختر ملف APK</value>
+  </data>
+  <data name="SelectedApkFile" xml:space="preserve">
+    <value>محدد: {0}</value>
+  </data>
+  <data name="ApkSelected" xml:space="preserve">
+    <value>تم اختيار APK: {0}</value>
+  </data>
+  
+  <!-- Decompilation Messages -->
+  <data name="StartingDecompilation" xml:space="preserve">
+    <value>بدء فك التجميع...</value>
+  </data>
+  <data name="DecompilationCompleted" xml:space="preserve">
+    <value>اكتمل فك التجميع</value>
+  </data>
+  <data name="ApkDecompiledSuccessfully" xml:space="preserve">
+    <value>تم فك تجميع APK بنجاح</value>
+  </data>
+  <data name="ReadyForEditing" xml:space="preserve">
+    <value>جاهز للتعديل - انقر 'فتح مساحة العمل' لتعديل الملفات</value>
+  </data>
+  <data name="DecompilationFailed" xml:space="preserve">
+    <value>فشل فك التجميع</value>
+  </data>
+  <data name="DecompilationCompletedSuccessfully" xml:space="preserve">
+    <value>اكتمل فك التجميع بنجاح!</value>
+  </data>
+  
+  <!-- Recompilation Messages -->
+  <data name="NoDecompiledProjects" xml:space="preserve">
+    <value>لم يتم العثور على مشاريع مفكوكة</value>
+  </data>
+  <data name="EditingCompleted" xml:space="preserve">
+    <value>اكتمل التعديل</value>
+  </data>
+  <data name="StartingRecompilation" xml:space="preserve">
+    <value>بدء إعادة التجميع...</value>
+  </data>
+  <data name="RecompilationCompleted" xml:space="preserve">
+    <value>اكتملت إعادة التجميع</value>
+  </data>
+  <data name="RecompilationFailed" xml:space="preserve">
+    <value>فشلت إعادة التجميع</value>
+  </data>
+  <data name="RecompilationCompletedSuccessfully" xml:space="preserve">
+    <value>اكتملت إعادة التجميع بنجاح!</value>
+  </data>
+  <data name="ProjectDirectoryNotFound" xml:space="preserve">
+    <value>لم يتم العثور على دليل المشروع!</value>
+  </data>
+  
+  <!-- Signing Messages -->
+  <data name="StartingApkSigning" xml:space="preserve">
+    <value>بدء توقيع APK...</value>
+  </data>
+  <data name="ApkSignedSuccessfully" xml:space="preserve">
+    <value>تم توقيع APK بنجاح!</value>
+  </data>
+  <data name="ProcessCompletedSuccessfully" xml:space="preserve">
+    <value>اكتملت العملية بنجاح!</value>
+  </data>
+  <data name="ApkProcessingCompleted" xml:space="preserve">
+    <value>اكتملت معالجة APK بنجاح!</value>
+  </data>
+  <data name="SigningFailed" xml:space="preserve">
+    <value>فشل التوقيع</value>
+  </data>
+  <data name="ApkSigningFailed" xml:space="preserve">
+    <value>فشل توقيع APK</value>
+  </data>
+  
+  <!-- Log Messages -->
+  <data name="NoLogFileFound" xml:space="preserve">
+    <value>لم يتم العثور على ملف السجل</value>
+  </data>
+  <data name="FailedToOpenLogs" xml:space="preserve">
+    <value>فشل فتح السجلات: {0}</value>
+  </data>
+  
+  <!-- Error Messages -->
+  <data name="Error" xml:space="preserve">
+    <value>خطأ: {0}</value>
+  </data>
+  <data name="Signing" xml:space="preserve">
+    <value>التوقيع: {0}</value>
+  </data>
+  <data name="ErrorDuring" xml:space="preserve">
+    <value>خطأ أثناء {0}: {1}</value>
+  </data>
+  <data name="FailedWithExitCode" xml:space="preserve">
+    <value>فشل برمز الخروج: {0}</value>
+  </data>
+</root>

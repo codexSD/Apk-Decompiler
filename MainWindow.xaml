@@ -1,0 +1,184 @@
+﻿<Window x:Class="Apk_Decompiler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Apk_Decompiler"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        xmlns:models="clr-namespace:Apk_Decompiler.Models"
+        mc:Ignorable="d"
+        Title="{Binding Localization.AppTitle}" Height="700" Width="1000"
+        MinHeight="600" MinWidth="800"
+        Icon="icons8-android-32.png"
+        FlowDirection="{Binding Localization.FlowDirection}"
+        ui:WindowHelper.UseModernWindowStyle="True">
+    
+    <Window.Resources>
+        <!-- Value Converters -->
+        <local:StatusToColorConverter x:Key="StatusToColorConverter"/>
+        <local:StatusToVisibilityConverter x:Key="StatusToVisibilityConverter"/>
+        <local:StepToNumberConverter x:Key="StepToNumberConverter"/>
+        <local:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+        
+        <!-- Step Card Style -->
+        <Style x:Key="StepCardStyle" TargetType="Border">
+            <Setter Property="Background" Value="{x:Static SystemColors.WindowBrush}"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Padding" Value="16"/>
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="{x:Static SystemColors.ControlLightBrush}"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#FF0078D4" Padding="20">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,8">
+                    <Image Source="icons8-android-32.png" Width="32" Height="32" Margin="0,0,12,0"/>
+                    <TextBlock Text="{Binding Localization.AppTitle}" FontSize="24" FontWeight="Bold" 
+                              Foreground="White" VerticalAlignment="Center"/>
+                </StackPanel>
+                <TextBlock Text="{Binding Localization.AppSubtitle}" 
+                          FontSize="14" Foreground="White" HorizontalAlignment="Center" 
+                          Opacity="0.9"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Main Content -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
+            <StackPanel>
+                <!-- Process Steps Header with Language Toggle -->
+                <Grid Margin="0,0,0,16">
+                    <TextBlock Text="{Binding Localization.ProcessSteps}" FontSize="18" FontWeight="SemiBold" 
+                              HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Button Content="{Binding Localization.LanguageButton}" 
+                           Command="{Binding ToggleLanguageCommand}"
+                           HorizontalAlignment="Right" VerticalAlignment="Center"
+                           Padding="12,6" MinWidth="80" FontSize="12"/>
+                </Grid>
+                
+                <ItemsControl ItemsSource="{Binding ProcessSteps}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type models:ApkProcessStep}">
+                            <Border Style="{StaticResource StepCardStyle}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Icon and Status Indicator -->
+                                    <StackPanel Grid.Column="0" Grid.RowSpan="3" Orientation="Vertical" 
+                                              VerticalAlignment="Center" Margin="0,0,16,0">
+                                        <TextBlock Text="{Binding Icon}" FontSize="24" HorizontalAlignment="Center"/>
+                                        <Ellipse Width="12" Height="12" Margin="0,8,0,0"
+                                               Fill="{Binding Status, Converter={StaticResource StatusToColorConverter}}"/>
+                                    </StackPanel>
+
+                                    <!-- Title and Description -->
+                                    <StackPanel Grid.Column="1" Grid.Row="0">
+                                        <TextBlock Text="{Binding Title}" FontSize="16" FontWeight="SemiBold"/>
+                                        <TextBlock Text="{Binding Description}" FontSize="12" 
+                                                 Foreground="Gray"
+                                                 Margin="0,2,0,0"/>
+                                    </StackPanel>
+
+                                    <!-- Status Message -->
+                                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Message}" 
+                                             FontSize="12" Margin="0,8,0,0"
+                                             Foreground="DarkGray"/>
+
+                                    <!-- Progress Bar -->
+                                    <ProgressBar Grid.Column="1" Grid.Row="2" 
+                                               Value="{Binding Progress}" Maximum="100"
+                                               Height="4" Margin="0,8,0,0"
+                                               Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}}"/>
+
+                                    <!-- Step Number -->
+                                    <Border Grid.Column="2" Grid.RowSpan="3" 
+                                          Background="#FF0078D4"
+                                          CornerRadius="12" Width="24" Height="24"
+                                          VerticalAlignment="Top">
+                                        <TextBlock Text="{Binding Step, Converter={StaticResource StepToNumberConverter}}" 
+                                                 Foreground="White" FontWeight="Bold" FontSize="12"
+                                                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <!-- Action Buttons -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <Button Content="{Binding Localization.CheckJavaButton}" Command="{Binding CheckJavaCommand}" 
+                             Margin="5" Padding="16,8" MinWidth="120"/>
+                    <Button Content="{Binding Localization.CheckToolsButton}" Command="{Binding CheckToolsCommand}" 
+                             Margin="5" Padding="16,8" MinWidth="120"/>
+                    <Button Content="{Binding Localization.SelectApkButton}" Command="{Binding SelectApkCommand}" 
+                             Margin="5" Padding="16,8" MinWidth="120"/>
+                    <Button Content="{Binding Localization.DecompileButton}" Command="{Binding DecompileCommand}" 
+                             Margin="5" Padding="16,8" MinWidth="120"
+                             ui:ControlHelper.CornerRadius="4"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                    <Button Content="{Binding Localization.OpenWorkspaceButton}" Command="{Binding OpenWorkspaceCommand}" 
+                             Margin="5" Padding="16,8" MinWidth="120"/>
+                    <Button Content="{Binding Localization.RecompileSignButton}" Command="{Binding RecompileCommand}" 
+                             Margin="5" Padding="16,8" MinWidth="120"
+                             ui:ControlHelper.CornerRadius="4"/>
+                    <Button Content="{Binding Localization.OpenOutputButton}" Command="{Binding OpenOutputCommand}" 
+                             Margin="5" Padding="16,8" MinWidth="120"/>
+                    <Button Content="{Binding Localization.ViewLogsButton}" Command="{Binding OpenLogsCommand}" 
+                             Margin="5" Padding="16,8" MinWidth="120"/>
+                </StackPanel>
+
+                <!-- Selected APK Info -->
+                <Border Style="{StaticResource StepCardStyle}" Margin="0,20,0,0"
+                       Visibility="{Binding SelectedApkPath, Converter={StaticResource StringToVisibilityConverter}}">
+                    <StackPanel>
+                        <TextBlock Text="{Binding Localization.SelectedApk}" FontWeight="SemiBold" FontSize="14"/>
+                        <TextBlock Text="{Binding SelectedApkPath}" FontSize="12" 
+                                 Foreground="Gray"
+                                 TextWrapping="Wrap" Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Status Bar -->
+        <Border Grid.Row="2" Background="LightGray" 
+               BorderBrush="Gray" 
+               BorderThickness="0,1,0,0" Padding="20,8">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0" Text="{Binding StatusMessage}" VerticalAlignment="Center"/>
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <ui:ProgressRing IsActive="{Binding IsProcessing}" Width="16" Height="16" 
+                                   Margin="0,0,8,0"/>
+                    <TextBlock Text="{Binding CurrentStep}" VerticalAlignment="Center" FontSize="12"
+                             Foreground="DarkGray"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

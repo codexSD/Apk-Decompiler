@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <RootNamespace>Apk_Decompiler</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>icons8-android-32.ico</ApplicationIcon>
+    
+    <!-- Enable satellite resource assemblies for localization -->
+    <SatelliteResourceLanguages>ar;en</SatelliteResourceLanguages>
+    <NeutralLanguage>ar</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ModernWpfUI" Version="0.9.6" />
+    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.IO.Compression" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="icons8-android-32.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <!-- Target to clean up language resource folders after build -->
+  <Target Name="RemoveLanguageFolders" AfterTargets="Build">
+    <ItemGroup>
+      <LanguageFolders Include="$(OutputPath)*-*\" />
+      <LanguageFolders Include="$(OutputPath)*_*\" />
+    </ItemGroup>
+    <RemoveDir Directories="@(LanguageFolders)" />
+  </Target>
+
+</Project>
